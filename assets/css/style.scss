@@ -1,10 +1,10 @@
 --- --- @import "{{ site.theme }}";
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 body {
-  font-family: 'Lora', Georgia, serif;
-  font-size: 18px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 17px;
   line-height: 1.8;
   color: #2d2d2d;
 }
@@ -23,6 +23,6 @@ pre {
 h1,
 h2,
 h3 {
-  font-family: 'Lora', Georgia, serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
 }
