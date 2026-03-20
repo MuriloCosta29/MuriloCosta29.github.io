@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "O que eu não sabia antes de usar FastAPI"
-date: 2026-03-12
+date: 2026-03-20
 ---
 Olá, um breve aviso! Enquanto eu estava escrevendo o 3º Post sobre FastAPI na prática, eu percebi que tinha algumas coisas que eu não sabia realmente o que significavam e enquanto eu escrevia sobre a FastAPI, eu fui anotando essas coisas que eu não sabia e fui procurar o significado delas para de fato entender o que elas eram.
 
