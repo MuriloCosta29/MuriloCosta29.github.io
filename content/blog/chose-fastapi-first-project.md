@@ -8,6 +8,8 @@ tags:
 
 Choosing the right tool is the most important step in software engineering. A look into why FastAPI was the logical choice over Django for my latest API.
 
+<!--more-->
+
 ## The decision
 While studying Django at college, I realized its opinionated structure was too heavy for the scope of my personal project. I started researching modern, lightweight Python frameworks for APIs, and FastAPI quickly stood out as the most logical choice.
 
