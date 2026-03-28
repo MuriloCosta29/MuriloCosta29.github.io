@@ -73,7 +73,7 @@ The whole architecture is:
 **Tool for organizing the project:** I considered using Jira since we use it in college but it, had too many features for a solo project. I chose GitHub Projects with a Kanban board instead.  
 **Curiosity about section projects in GitHub:** If you write in end of a commit: `closes <issue number>`  
 The GitHub automatically close the issue. I know it's simples, but it's cool.
-![Task Dashboard](/Users/murilocosta/Documents/02_personal_projects/MuriloCosta29.github.io/_vendor/github.com/imfing/hextra/static/images/dashboard-screenshot.png)  
+![Task Dashboard](/images/dashboard-screenshot.png)  
 My dashboard on the day I'm writing this post. 👆
 
 
