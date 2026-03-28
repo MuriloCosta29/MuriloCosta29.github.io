@@ -13,6 +13,8 @@ tags:
   - Nginx
 ---
 
+It was time to step out of the CRUD comfort zone. A look at the architecture, the stack, and the strict "no-tutorial" mindset behind my new asynchronous health check system.
+
 <!--more-->
 
 ## Why this project  
