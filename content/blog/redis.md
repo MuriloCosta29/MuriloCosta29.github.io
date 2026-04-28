@@ -5,6 +5,11 @@ tags:
   - Redis
 ---
 
+In this post, I explain how I added Redis to Deploy Tracker using the cache-aside pattern. The goal was to avoid unnecessary PostgreSQL queries when the same data was requested multiple times. I also learned why Redis is useful beyond speed: it stores temporary data in memory, supports TTL, and helps reduce repeated work.
+While implementing it, I faced real problems with serialization. SQLAlchemy objects and `datetime` values could not be saved directly as JSON, so I had to convert models into dictionaries and use `json.dumps(data, default=str)`. I also learned that Redis stores strings/bytes, not Python objects directly, and that cache invalidation is necessary when the original data changes.
+
+<!--more-->
+
 ## The Problem
 - Every time the GET request a data in PostgreSQL, this have a time and the problem is here. If the data change, it's ok, right?! Because is necessary the request to view the different data but, **if the data don't change?**, now we have a problem, and the Redis enter to solve this.
 
