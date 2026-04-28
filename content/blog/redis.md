@@ -1,6 +1,6 @@
  ---
 title: "Adding Redis to the Deploy Tracker — and What Caching Actually Solves"
-date: 2026-04-19
+date: 2026-04-28
 tags:
   - Redis
 ---
