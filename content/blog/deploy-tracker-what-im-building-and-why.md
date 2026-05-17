@@ -1,16 +1,18 @@
 ---
 title: "Deploy Tracker -- Why and What"
 date: 2026-03-28
+translationKey: deploy-tracker-what-im-building-and-why
+description: "The architecture, stack, and strict no-tutorial mindset behind Deploy Tracker — my asynchronous health-check system bridging backend engineering and DevOps."
 tags:
-  - FastAPI
-  - PostgreSQL
-  - Redis
-  - Celery
-  - Docker Compose
-  - Prometheus
-  - Grafana
-  - GitHub Actions
-  - Nginx
+  - fastapi
+  - postgresql
+  - redis
+  - celery
+  - docker-compose
+  - prometheus
+  - grafana
+  - github-actions
+  - nginx
 ---
 
 It was time to step out of the CRUD comfort zone. A look at the architecture, the stack, and the strict "no-tutorial" mindset behind my new asynchronous health check system.

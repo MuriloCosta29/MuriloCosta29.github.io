@@ -1,4 +1,6 @@
 ---
-title: ""
-description: "Computer Science student documenting the path to DevOps Engineer. I write about what I build, the decisions behind it, and what I learn along the way."
+title: "Murilo Costa — Aspiring DevOps Engineer"
+linkTitle: ""
+translationKey: home
+description: "I'm Murilo Costa, a Computer Science student in Recife, Brazil, documenting the path to becoming a DevOps Engineer. I write about real projects, infrastructure decisions, bugs, tradeoffs, and what I learn by building."
 ---

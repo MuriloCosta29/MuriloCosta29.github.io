@@ -3,35 +3,84 @@ baseURL: https://murilocosta29.github.io/
 
 enableRobotsTXT: true
 enableGitInfo: true
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
 
 module:
   imports:
     - path: github.com/imfing/hextra
 
-menu:
-  main:
-    - name: Blog
-      pageRef: /
-      weight: 1
-    - name: About
-      pageRef: /about
-      weight: 2
-    - name: Search
-      weight: 3
-      params:
-        type: search
-    - name: GitHub
-      weight: 4
-      url: "https://github.com/MuriloCosta29"
-      params:
-        icon: github
-    - name: Theme
-      weight: 5
-      params:
-        type: theme-toggle
+languages:
+  en:
+    languageName: English
+    weight: 1
+    title: Murilo Costa
+    menu:
+      main:
+        - name: Blog
+          pageRef: /
+          weight: 1
+        - name: About
+          pageRef: /about
+          weight: 2
+        - name: Search
+          weight: 3
+          params:
+            type: search
+        - name: Language
+          weight: 4
+          params:
+            type: language-switch
+            icon: translate
+            label: true
+        - name: GitHub
+          weight: 5
+          url: "https://github.com/MuriloCosta29"
+          params:
+            icon: github
+        - name: Theme
+          weight: 6
+          params:
+            type: theme-toggle
+  pt:
+    languageName: Português
+    weight: 2
+    title: Murilo Costa
+    menu:
+      main:
+        - name: Blog
+          pageRef: /
+          weight: 1
+        - name: Sobre
+          pageRef: /about
+          weight: 2
+        - name: Buscar
+          weight: 3
+          params:
+            type: search
+        - name: Idioma
+          weight: 4
+          params:
+            type: language-switch
+            icon: translate
+            label: true
+        - name: GitHub
+          weight: 5
+          url: "https://github.com/MuriloCosta29"
+          params:
+            icon: github
+        - name: Tema
+          weight: 6
+          params:
+            type: theme-toggle
 
 params:
   description: "Computer Science student documenting the path to DevOps Engineer."
+
+  # Default social share image. Place a 1200x630 PNG at static/og-default.png.
+  # Posts can override by setting `images: [/images/custom.png]` in their front matter.
+  images:
+    - og-default.png
 
   navbar:
     displayTitle: true
@@ -51,8 +100,14 @@ params:
   page:
     width: normal
 
-  markup:
+markup:
   goldmark:
     extensions:
       typographer:
         disable: true
+  highlight:
+    noClasses: false
+    lineNos: false
+    codeFences: true
+    guessSyntax: true
+    tabWidth: 4

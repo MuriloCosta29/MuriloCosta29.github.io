@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" shape-rendering="crispEdges">
+  <rect width="32" height="32" rx="5" fill="#f4efe6"/>
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="4.5" fill="none" stroke="#d8ccba" stroke-width="1"/>
+  <text
+    x="16"
+    y="23.25"
+    text-anchor="middle"
+    font-family="Menlo, Monaco, monospace"
+    font-size="16"
+    font-weight="700"
+    letter-spacing="-1"
+    fill="#2d2923"
+  >MC</text>
+</svg>

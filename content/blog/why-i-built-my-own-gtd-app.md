@@ -1,10 +1,12 @@
 ---
 title: "Why I Built My Own GTD App"
 date: 2026-03-18
+translationKey: why-i-built-my-own-gtd-app
+description: "Why I built my own GTD inbox in Python — a distraction-free REST API shaped around how my brain captures tasks, instead of bending to Notion."
 tags:
-  - FastAPI
-  - Python
-  - Docker
+  - fastapi
+  - python
+  - docker
 ---
 
 I was using Notion for task management, but every time I opened it to capture a quick thought, I got distracted by everything else on the screen. I needed a simpler inbox.
@@ -31,4 +33,4 @@ This project introduced me to several technologies I had always wanted to learn:
 - **SQLite + SQLAlchemy** — SQLite as the database, SQLAlchemy as the translator between Python and SQL.
 - **Docker** — Basic usage, but the satisfaction of containerizing a real project was worth it.
 
-This was the project that made me realize I want to keep building tools that solve my own problems. The next one is bigger: [Deploy Tracker](/blog/deploy-tracker), a multi-service monitoring system.
+This was the project that made me realize I want to keep building tools that solve my own problems. The next one is bigger: [Deploy Tracker](/blog/deploy-tracker-what-im-building-and-why/), a multi-service monitoring system.
