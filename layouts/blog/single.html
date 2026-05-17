@@ -1,0 +1,60 @@
+{{ define "main" }}
+  <div class="reading-progress" aria-hidden="true"><div class="reading-progress-bar"></div></div>
+  <div class="hx:mx-auto hx:flex hextra-max-page-width">
+    {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}
+    {{ partial "toc.html" . }}
+    <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main id="content" class="hx:w-full hx:min-w-0 hextra-max-content-width hx:px-6 hx:pt-4 hx:md:px-12">
+        {{ partial "breadcrumb.html" (dict "page" . "enable" true) }}
+        {{ if .Title }}
+        <div class="hx:flex hx:flex-col hx:sm:flex-row hx:items-start hx:sm:items-center hx:sm:justify-between hx:gap-4 hx:mt-2">
+          <h1 class="hx:mb-0 hx:text-4xl hx:font-bold hx:tracking-tight hx:text-slate-900 hx:dark:text-slate-100">{{ .Title }}</h1>
+          {{ partial "components/page-context-menu" . }}
+        </div>
+        {{ end }}
+        <div class="post-meta hx:mt-4 hx:mb-12">
+          {{- with $date := .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ partial "utils/format-date" $date }}</time>{{ end -}}
+          {{- with .ReadingTime }}
+            <span class="post-meta-sep">·</span>
+            <span class="post-meta-reading">{{ . }} {{ T "minRead" | default "min read" }}</span>
+          {{- end }}
+          {{- with .Params.tags }}
+            <span class="post-meta-sep">·</span>
+            <span class="post-meta-tags">
+              {{- range $i, $tag := . -}}
+                {{- if $i }}<span class="post-meta-tag-sep"></span>{{ end -}}
+                <a href="{{ (printf "/tags/%s" (urlize $tag)) | relLangURL }}">{{ $tag }}</a>
+              {{- end -}}
+            </span>
+          {{- end }}
+        </div>
+        <div class="content blog-post-content">
+          {{ .Content }}
+        </div>
+        {{- partial "components/last-updated.html" . -}}
+        {{- if (site.Params.blog.article.displayPagination | default true) -}}
+          {{- .Store.Set "reversePagination" (.Params.reversePagination | default true) -}}
+          {{- partial "components/pager.html" . -}}
+        {{ end }}
+        {{- partial "components/comments.html" . -}}
+      </main>
+    </article>
+  </div>
+  <script>
+    (function () {
+      var bar = document.querySelector('.reading-progress-bar');
+      var article = document.querySelector('main#content');
+      if (!bar || !article) return;
+      function update() {
+        var rect = article.getBoundingClientRect();
+        var total = rect.height - window.innerHeight;
+        var scrolled = -rect.top;
+        var pct = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0;
+        bar.style.width = (pct * 100) + '%';
+      }
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+    })();
+  </script>
+{{ end }}
