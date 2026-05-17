@@ -1,0 +1,20 @@
+{{/*
+  Hextra head-end hook (called from layouts/_partials/head.html).
+
+  Adds the og:locale tags that Hextra's opengraph.html doesn't emit unless a
+  per-page `locale:` is set. We derive the locale from the page language and
+  emit og:locale:alternate entries for every translation that exists.
+*/}}
+
+{{- $localeMap := dict
+  "en" "en_US"
+  "pt" "pt_BR"
+-}}
+
+{{- $current := index $localeMap .Page.Language.Lang | default (replace .Page.Language.Lang "-" "_") -}}
+<meta property="og:locale" content="{{ $current }}">
+
+{{- range .Page.Translations }}
+  {{- $alt := index $localeMap .Language.Lang | default (replace .Language.Lang "-" "_") }}
+<meta property="og:locale:alternate" content="{{ $alt }}">
+{{- end }}

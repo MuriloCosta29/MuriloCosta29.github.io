@@ -1,0 +1,49 @@
+{{/*
+  Override of Hugo's internal twitter_cards.html.
+
+  Hextra calls `partial "twitter_cards.html"` from layouts/_partials/head.html.
+  Since Hextra ships no copy of this partial, Hugo's internal one is used, which
+  emits `twitter:card="summary"` and no `twitter:image` when no images are set.
+
+  This version mirrors the image-resolution logic in Hextra's opengraph.html
+  (page `images:` front matter -> site `params.images`) and always upgrades the
+  card to `summary_large_image` when an image is available.
+*/}}
+
+{{- $image := "" -}}
+
+{{- with $.Params.images -}}
+  {{- $first := index . 0 -}}
+  {{- with $.Resources.GetMatch $first -}}
+    {{- $image = .Permalink -}}
+  {{- else -}}
+    {{- if hasPrefix $first "/" -}}
+      {{- $image = (strings.TrimPrefix "/" $first) | relURL | absURL -}}
+    {{- else -}}
+      {{- $image = $first | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- with $.Site.Params.images -}}
+    {{- $first := index . 0 -}}
+    {{- if hasPrefix $first "/" -}}
+      {{- $image = (strings.TrimPrefix "/" $first) | relURL | absURL -}}
+    {{- else -}}
+      {{- $image = $first | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $image }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ $image }}">
+{{- else }}
+<meta name="twitter:card" content="summary">
+{{- end }}
+
+{{/* Optional: set params.twitterHandle in hugo.yaml to emit twitter:site. */}}
+{{- with $.Site.Params.twitterHandle }}
+<meta name="twitter:site" content="@{{ . }}">
+{{- end }}
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
