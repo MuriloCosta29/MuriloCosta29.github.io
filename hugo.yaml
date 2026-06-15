@@ -75,7 +75,7 @@ languages:
             type: theme-toggle
 
 params:
-  description: "Computer Science student documenting the path to DevOps Engineer."
+  description: "Computer Science student documenting the path to Platform Engineer."
 
   # Default social share image. Place a 1200x630 PNG at static/og-default.png.
   # Posts can override by setting `images: [/images/custom.png]` in their front matter.
@@ -89,6 +89,9 @@ params:
   footer:
     displayCopyright: true
     displayPoweredBy: false
+
+  theme:
+    default: light
 
   editURL:
     enable: false
