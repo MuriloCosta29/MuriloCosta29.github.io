@@ -396,6 +396,11 @@ html:not(.dark) .content blockquote {
   color: var(--mc-subtle);
 }
 
+.post-meta-tag-sep::before {
+  color: var(--mc-subtle);
+  content: " · ";
+}
+
 .post-meta-tags {
   min-width: 0;
 }
