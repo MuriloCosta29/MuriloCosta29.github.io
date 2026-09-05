@@ -1,5 +1,4 @@
 {{ define "main" }}
-  {{- $readMore := (T "readMore") | default "Read more →" -}}
   <div class="hx:mx-auto hx:flex hextra-max-page-width home-layout">
     {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}
     <article class="home-article hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
@@ -40,21 +39,9 @@
         {{- $paginator := .Paginate $blogSection.Pages.ByDate.Reverse $pagerSize -}}
         {{- range $paginator.Pages }}
           <article class="home-post-item">
-            <div class="home-post-meta">
-              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "utils/format-date" .Date }}</time>
-              {{ if site.Params.blog.list.displayTags }}
-                <span class="home-post-meta-separator">/</span>
-                <span class="home-post-tags">
-                  {{ partial "tags.html" (dict "context" .) }}
-                </span>
-              {{ end }}
-            </div>
-            <h3 class="home-post-title">
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </h3>
-            <p class="home-post-description">{{- partial "utils/page-description" . -}}</p>
-            <a class="home-post-link" href="{{ .RelPermalink }}" aria-label="{{ printf "%s %s" $readMore .Title }}">
-              {{- $readMore -}}
+            <a class="home-post-row" href="{{ .RelPermalink }}">
+              <h3 class="home-post-title">{{ .Title }}</h3>
+              <time class="home-post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "utils/format-date" .Date }}</time>
             </a>
           </article>
         {{- end }}
